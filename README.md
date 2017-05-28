@@ -33,3 +33,12 @@ cucumber
 
 atraves do comando "gem install (Nome da gem).
 
+
+
+
+*************************************************
+
+Para desenvolver o "steps" foi utilizado como base a 
+Lista de comandos:
+https://gist.github.com/zhengjia/428105
+
