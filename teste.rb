@@ -1,10 +1,12 @@
 Dado(/^que esteja na home da loja$/) do
  find('webstore home.class')
- click_button('Procurar')
+
 end
 
 Quando(/^buscar o item$/) do
   fill_in('ft', :with => 'TV')
+  click_button('Procurar')
+ 
 end
 
 Então(/^validar que a busca foi realizada com sucesso$/) do
