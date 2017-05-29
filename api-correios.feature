@@ -1,4 +1,4 @@
-Feature: Validate api of company correios.com.br
+Feature: Validar API do fornecedor correios.com.br
 
 
 Cenario: Testar com CEP invalido
