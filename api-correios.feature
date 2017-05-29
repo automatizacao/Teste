@@ -1,18 +1,18 @@
 Feature: Validate api of company correios.com.br
 
 
-Scenario Outline: Invalid CEP
-  Given the URL to be validated is "http://viacep.com.br/ws/<<CEP_NUMBER>>/json/"
-  When I send a request with "<CEP>"
-  Then a incosistent response returned
-    Examples:
+Cenario: Testar com CEP invalido
+  Dado a URL será validada "http://viacep.com.br/ws/<<CEP_NUMBER>>/json/"
+  Quando  Eu enviar uma request de CEP
+  Então a reposta deve ter retorno com erro
+    Exemplo:
       | CEP       |
       | 133333333 |
 
-Scenario Outline: Valid CEP
-  Given the URL to be validated is "http://viacep.com.br/ws/<<CEP_NUMBER>>/json/"
-  When I send a request with "<CEP>"
-  Then a cosistent response returned with following nodes
+Cenario: Testar com CEP Valido
+ Dado a URL será validada "http://viacep.com.br/ws/<<CEP_NUMBER>>/json/"
+  Quando  Eu enviar uma request de CEP
+  Então a reposta deve ter retorno com sucesso
     | CEP         |
     | Logradouro  |
     | Complemento |
@@ -21,22 +21,22 @@ Scenario Outline: Valid CEP
     | Unidade     |
     | Ibge        |
     | Gia         |
-    Examples:
+    Exemplo:
       | CEP       |
       | 13806303  |
 
-Scenario Outline: Validate returned nodes
-  Given the URL to be validated is "http://viacep.com.br/ws/<<CEP_NUMBER>>/json/"
-  When I send a request with "<CEP>"
-  Then validate node "CEP" equals "<CEP>"
-  Then validate node "Logradouro" equals "<Logradouro>"
-  Then validate node "Complemento" equals "<Complemento>"
-  Then validate node "Bairro" equals "<Bairro>"
-  Then validate node "Localidade" equals "<Localidade>"
-  Then validate node "UF" equals "<UF>"
-  Then validate node "Unidade" equals "<Unidade>"
-  Then validate node "Ibge" equals "<Ibge>"
-  Then validate node "Gia" equals "<Gia>"
+Cenario: Validando resultado com sucesso. 
+  Dado a URL será validada "http://viacep.com.br/ws/<<CEP_NUMBER>>/json/"
+  Quando  Eu enviar uma request de CEP
+  Então validar que "CEP" igual "<CEP>"
+  Então validar que "Logradouro" igual "<Logradouro>"
+  Então validar que "Complemento" igual "<Complemento>"
+  Então validar que "Bairro" igual "<Bairro>"
+  Então validar que "Localidade" igual "<Localidade>"
+  Então validar que "UF" igual "<UF>"
+  Então validar que "Unidade" igual "<Unidade>"
+  Então validar que "Ibge" igual "<Ibge>"
+  Então validar que "Gia" igual "<Gia>"
     Examples:
       | CEP       | Logradouro            | Complemento   | Bairro        | Localidade  | UF | Unidade  | Ibge    | Gia   |
       | 13073010  | Rua Buarque de Macedo | até 1310/1311 | Jardim Brasil | Campinas    | SP |          | 3509502 | 2446  |
