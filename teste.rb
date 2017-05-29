@@ -1,6 +1,6 @@
 Dado(/^que esteja na home da loja$/) do
  find('webstore home.class')
- click('Procurar')
+ click_button('Procurar')
 end
 
 Quando(/^buscar o item$/) do
